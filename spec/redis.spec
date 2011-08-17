@@ -3,13 +3,13 @@
 
 Summary: redis
 Name: redis
-Version: 2.0.0
-Release: rc2
+Version: 2.2.12
+Release: JD
 License: BSD
 Group: Applications/Multimedia
 URL: http://code.google.com/p/redis/
 
-Source0: redis-%{version}-%{release}.tar.gz
+Source0: redis-%{version}.tar.gz
 Source1: redis.conf
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
@@ -140,9 +140,9 @@ EOF
 %install
 %{__rm} -rf %{buildroot}
 mkdir -p %{buildroot}%{_bindir}
-%{__install} -Dp -m 0755 redis-server %{buildroot}%{_sbindir}/redis-server
-%{__install} -Dp -m 0755 redis-benchmark %{buildroot}%{_bindir}/redis-benchmark
-%{__install} -Dp -m 0755 redis-cli %{buildroot}%{_bindir}/redis-cli
+%{__install} -Dp -m 0755 src/redis-server %{buildroot}%{_sbindir}/redis-server
+%{__install} -Dp -m 0755 src/redis-benchmark %{buildroot}%{_bindir}/redis-benchmark
+%{__install} -Dp -m 0755 src/redis-cli %{buildroot}%{_bindir}/redis-cli
 
 %{__install} -Dp -m 0755 redis.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/redis
 %{__install} -Dp -m 0755 redis.sysv %{buildroot}%{_sysconfdir}/init.d/redis
